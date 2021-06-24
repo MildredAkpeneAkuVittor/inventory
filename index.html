@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<script type = "text/javascript" src = "https://www.gstatic.com/charts/loader.js">
+</script>
+<script type = "text/javascript">
+         google.charts.load('current', {packages: ['corechart']});     
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Dashboard</title>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="back-drop"></div>
+       
+        <div class="main">         
+            <div class="side-menu">
+               <a href="./index.html">Dashboard</a>
+               <a href="./add.html">add</a>
+               <a href="./remove.html">delete</a>
+               <a href="./quantity.html">Quantity</a>
+               <a href="./details.html">information</a>
+               <div class="summary">
+                   <div class="sum-header"></div>
+                   <div class="total-value"></div>
+                   <div class="sum-title"></div>
+                   <div class="depleted"></div>
+                   <div class="sum-categories"></div>
+
+               </div>
+            </div>
+            <div class="content">
+               
+
+               <table>
+                 <thead>
+                    <tr class="table-head">
+                     <td><div class="selecta"></div></td>
+                     <td><div class="codea">Code</div></td>
+                     <td><div class="categorya">Category</div></td>
+                     <td><div class="namea">Name</div></td>                  
+                     <td><div class="descriptiona">Description</div></td>
+                     <td><div class="pricea">Price</div></td>
+                     <td><div class="quantitya">Qty</div></td>
+                     <td><div class="labela">label</div></td>                   
+                     <td><div class="edita"></div></td> 
+                    </tr>
+                </thead>
+                 <tbody class="row-template">
+                     <tr class="row-">
+                         <td><div class="select"></div></td>
+                         <td><div class="serial"></div></td>
+                         <td><div class="name"></div></td>
+                         <td><div class="category"></div></td>
+                         <td><div class="description"></div></td>
+                         <td><div class="quantity"></div></td>
+                         <td><div class="label-code"></div></td>
+                         <td><div class="edit"></div></td>
+                     </tr>
+                 </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

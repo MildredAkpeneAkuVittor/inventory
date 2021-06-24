@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <title>New Item</title>
+</head>
+<body>
+    <div class="container">
+        <div class="back-drop"></div>
+        <div class="main">
+            <div class="side-menu">
+                <a href="./index.html">Dashboard</a>
+                <a href="./add.html">add</a>
+                <a href="./remove.html">delete</a> 
+                <a href="./quantity.html">Quantity</a>
+                <a href="./details.html">information</a>
+            </div>
+            <div class="content">
+                <div class="content-header">
+                  
+                    <div class="take-input">
+                        <div><label for="item-name">Item Name</label><input  class="add-new" type="text" id="item-name" ></div>
+                        <div><label for="item-qty">New Quantity</label><input class="add-new" type="number" id="item-qty"></div>
+                        <div><label for="item-price">Item price</label><input class="add-new" type="number" id="item-price" ></div>
+                        <div class="description">
+                            <label for="description">Description</label>
+                            <textarea name="description" id="description" cols="38" rows="3"></textarea>
+                        </div>
+                        <div><label for="category-select">Choose a Category</label>
+                        <select class="add-new" name="item-category" id="category-select"> 
+                            <option value="">-- select--</option>
+                            <option value="jewelery">jewelery</option>
+                            <option value="men's clothing">men</option>
+                            <option value="women's clothing">women</option>
+                            <option value="electronics">electronics</option>
+                        </select></div>                      
+                    </div>
+                    <div class="add-new-item"><button id="add-button">submit</button></div>
+                
+               </div>
+            </div>
+        </div>
+    </div>
+    <script src="add.js"></script>
+</body>
+</html>
