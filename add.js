@@ -17,14 +17,14 @@
                 addNew[i].style.border="solid 1px red";
                 addNew[i].placeholder="Enter Valid Values"
                 status="not okay"
-                console.log(status)
+                
                 return
-                console.log(status)
+                
                 }else{status="1";}
                 if( addNew[i].value==="--Please choose an option--"){
                 categoryInfo.innerText='Please choose a category';
                 status='not okay'
-                console.log(status)
+                
                 return
                 }else {status="1";}
             }
@@ -34,19 +34,19 @@
                 document.getElementById('description').value="Please enter a Description!!!" 
                 document.getElementById('description').style.border="solid 1px red"
                 status="not okay"
-                console.log(status)
+                
                 return
             }else {status="1"}
         }
-      
+        
         if (status==="1"){
         var code = securityToken();
-        
+       
         alertHandler(true,"Confirm New Changes?","newEntryHandler",code)
-        
+    
 
         }
-    }else{
+    } else{
         if (response==="okay"){
             saveValues()
             
@@ -59,7 +59,7 @@
 
     function saveValues(){
      allProductsPlus=JSON.parse(localStorage.getItem("allProductsPlus"));
-     console.log(allProductsPlus)
+     
      let newIndex= +allProductsPlus.length + 1
      newObj={
          "id":newIndex,
@@ -77,9 +77,67 @@
 }
 btn.addEventListener('click',newEntryHandler)
 
+function alertHandler(reqres,message,from,token){
+    
 
+    if (typeof(reqres) !== "boolean" || message===""){ 
+             
+         }
+    else{
+        if(reqres===true){      
+           return callAlert(1,message,token);
+        }
+        else{
+            callAlert(0,message);
+        }
+    }
+
+    function callAlert(type,message,token){  
+     
+        let justAlert = `<div id="show-info">
+                            <p id="info-p">${message}</p>
+                            <button id="okay-and-nothing">Okay</button>
+                        </div>`
+        let notJustAlert=`<div id="alert-with-input">
+                            <p id="info-input-p">${message}</p>
+                            <button id="cancel" name="cancel" class="do-this">Cancel</button>
+                            <button id="okay" name = "okay"class="do-this">Okay</button>
+                          </div>`        
+        if (type === 0 ){                                          
+            document.querySelector('.back-drop').style.display="block";
+  
+            contentTag.insertAdjacentHTML('afterbegin',justAlert)
+            document.getElementById("okay-and-nothing").addEventListener('click',(e)=>{
+                document.getElementById('show-info').remove();
+                document.querySelector('.back-drop').style.display="none"
+            });
+        } 
+        else{
+            var code = token;
+            var sender = from;
+            document.querySelector('.back-drop').className = ('back-drop visibility');
+           
+            contentTag.insertAdjacentHTML('afterbegin',notJustAlert);
+            document.querySelectorAll('.do-this').forEach(element => { 
+                element.addEventListener('click', (e)=>{
+                    var result = e.target.getAttribute('name');
+                    
+                    window[sender](result,token);
+                    
+                   document.getElementById('alert-with-input').remove();
+                   document.querySelector('.back-drop').className = ('back-drop')
+                   
+                })
+                
+            })
+                    
+        }  
+    }     
+
+}
 
 function securityToken(){   
+
     let CodeSaverArray = [];
     let hexRef = [1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F','0'];
     for(let i = 0; i < 5; i++){

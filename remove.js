@@ -36,14 +36,13 @@ var NameIt;
    }
  }
 
-
- if(!lstorageReadWrite(true,"allProductsPlus")){ 
+ if(!lstorageReadWrite(true,"allProductsPlus")){  
      fetchData();
  }
 
 
 
-function lstorageReadWrite(readOrWrite,name,content,token){  
+function lstorageReadWrite(readOrWrite,name,content,token){   
     
     if(readOrWrite===true){ 
         if(localStorage.getItem(name)){
@@ -55,11 +54,11 @@ function lstorageReadWrite(readOrWrite,name,content,token){
          return 0;
         }
     }
-    else if(readOrWrite===false){ 
+    else if(readOrWrite===false){  
         localStorage.setItem(name,JSON.stringify(content))
     }
     else if(readOrWrite==="delete"){
-            
+          
             if(alertHandler(true, "confirm delete")==="okay"){
                 localStorage.removeItem(content) 
             }        
@@ -221,7 +220,7 @@ function tableFillHandler(){
 tableFillHandler()
 
 
-function htmlGenerator(i){  
+function htmlGenerator(i){  //used to generate new rows
 
     newRow = document.createElement("tr");
     newRow.className = ' row-'+ i;
@@ -241,8 +240,66 @@ document.querySelector(`.row-${i}`).innerHTML = createRowContent;
 }
 
 
+function alertHandler(reqres,message,from,token){ 
+    
 
-function securityToken(){   //generate 5 digit code for secure local storage lear and delete operations
+    if (typeof(reqres) !== "boolean" || message===""){ 
+             console.log('alerthandler error! request-response not clear, or message is empty!')
+         }
+    else{
+        if(reqres===true){      
+           return callAlert(1,message,token);
+        }
+        else{
+            callAlert(0,message);
+        }
+    }
+
+    function callAlert(type,message,token){ 
+     
+        let justAlert = `<div id="show-info">
+                            <p id="info-p">${message}</p>
+                            <button id="okay-and-nothing">Okay</button>
+                        </div>`
+        let notJustAlert=`<div id="alert-with-input">
+                            <p id="info-input-p">${message}</p>
+                            <button id="cancel" name="cancel" class="do-this">Cancel</button>
+                            <button id="okay" name = "okay"class="do-this">Okay</button>
+                          </div>`        
+        if (type === 0 ){                                          
+            document.querySelector('.back-drop').style.display="block";
+            console.log(document.querySelector('.back-drop').className)
+            contentTag.insertAdjacentHTML('afterbegin',justAlert)
+            document.getElementById("okay-and-nothing").addEventListener('click',(e)=>{
+                document.getElementById('show-info').remove();
+                document.querySelector('.back-drop').style.display="none"
+            });
+        } 
+        else{
+            var code = token;
+            var sender = from;
+            document.querySelector('.back-drop').className = ('back-drop visibility');
+           
+            contentTag.insertAdjacentHTML('afterbegin',notJustAlert);
+            document.querySelectorAll('.do-this').forEach(element => { 
+                element.addEventListener('click', (e)=>{
+                    var result = e.target.getAttribute('name');
+                    console.log(code)
+                    window[sender](undefined,result,token);
+                    console.log(sender)
+                   document.getElementById('alert-with-input').remove();
+                   document.querySelector('.back-drop').className = ('back-drop')
+                   
+                })
+                
+            })
+                    
+        }  
+    }     
+
+}
+
+function securityToken(){   
 
     let CodeSaverArray = [];
     let hexRef = [1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F','0'];
@@ -264,12 +321,14 @@ function buildSearchArray(){
     }
 }
 
+function search(){
+    
+}
 
 
 
 
-
-const rows = document.querySelectorAll(".rows");   
+const rows = document.querySelectorAll(".rows");  
 rows.forEach(element => {
     element.addEventListener('click',(e)=>{
         let thisEvent=e.target.getAttribute("class").match(/\d+/g,'')
