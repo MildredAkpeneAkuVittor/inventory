@@ -1,10 +1,28 @@
 const contentTag = document.querySelector(".main");
  const infoWithOption=document.getElementById('alert-with-input');
+ let infoArray=[];
  let forEditPage = JSON.parse(localStorage.getItem("forEditPage"))
 let allProductsPlus = JSON.parse(localStorage.getItem("allProductsPlus"))
-console.log(allProductsPlus[+forEditPage].image)
+function logger(msg){
+   
+   newEvent={}
+    var timeStamp = Number(new Date());
+   newEvent['timeStamp']= timeStamp;
+   newEvent["msg"]=msg;
+    
+    if(!localStorage.getItem("events")){
+        infoArray.push(anEvent);
+        localStorage.setItem("events",(JSON.stringify(infoArray)));
+    }
+    else{
+    let events=JSON.parse(localStorage.getItem("events"));
+    events.push(anEvent);
+    localStorage.setItem("events",(JSON.stringify(events)));
+    }
+    displayAlert(1);
+     
+}
 function loadDetails(forEditPage){
-    console.log(forEditPage)
     const details = document.querySelectorAll('.des-content')
     document.querySelector('.de-image').src=allProductsPlus[+forEditPage].image
     details[0].value=allProductsPlus[+forEditPage]['title']
@@ -58,6 +76,7 @@ function editHandler(response,token){
         }
         else {
             alertHandler(false,"Changes not saved")
+            logger("Failed edit attempt ")
             return
         }
         }
@@ -78,13 +97,14 @@ function editHandler(response,token){
          }
          allProductsPlus[changeIndex]=newObj;
          localStorage.setItem("allProductsPlus",JSON.stringify(allProductsPlus))
+         logger(" Item edit successful")
          location.reload()
          alertHandler(false,"New Changes Saved Successfully")
     }
 }
 
 
-function alertHandler(reqres,message,from,token){ 
+function alertHandler(reqres,message,from,token){
     
 
     if (typeof(reqres) !== "boolean" || message===""){ 
@@ -143,13 +163,20 @@ function alertHandler(reqres,message,from,token){
 
 }
 
-function securityToken(){   
 
-    let CodeSaverArray = [];
-    let hexRef = [1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F','0'];
-    for(let i = 0; i < 5; i++){
-        let thisIndex = Math.floor((Math.random() * 15) + 1);
-        CodeSaverArray.push(hexRef[thisIndex]);
-    }
-    return CodeSaverArray.join("");
+function displayAlert(count){
+    let counter;
+    if (count !==1){counter=0;}
+ 
+ if(!JSON.parse(localStorage.getItem('alertCounter'))){
+ 
+  document.querySelector('.bell-back').innerHTML=counter;
+  localStorage.setItem('alertCounter',JSON.stringify(counter))
+ }else{
+     alertCount= +JSON.parse(localStorage.getItem('alertCounter'))+counter;
+     document.querySelector('.bell-back').innerHTML=alertCount;
+     localStorage.setItem('alertCounter',JSON.stringify(alertCount))
+ }
+
 }
+displayAlert()

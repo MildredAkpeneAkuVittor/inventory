@@ -28,22 +28,51 @@
             </div>
         
         </header>
-       
         <div class="main">
             <div class="side-menu">
                 <a href="./index.html">Dashboard</a>
                 <a href="./add.html">add</a>
-                <a href="./remove.html">quantity</a>
-                <a href="./quantity.html">items</a>
+                <a href="./remove.html">delete</a>
+                <a href="./quantity.html">Quantity</a>
                 <a href="./details.html">information</a>
             </div>
             <div class="content">
                 <div class="content-header">
-                  
-                
+                   
+                    <i class="fa fa-bell-o"onclick="window.location.assign('./message.html')"></i>  
+                    <span class ="bell-back" onclick="window.location.assign('./message.html')">0</span>
+                    <div class="details-container">
+                        <div class="other-info">
+                            <div class="des-name">
+                                <div class="des-title">ITEM NAME</div>
+                                <input type="text" class="des-content">
+                            </div><hr>
+                            <div class="des-category">
+                                <div class="des-title">ITEM CATEGORY</div>
+                                <input type="text" class="des-content">
+                            </div><hr>
+                            <div class="des-quantity">
+                                <div class="des-title">QUANTITY IN STOCK</div>
+                                <input type="number" class="des-content">
+                            </div><hr>
+                            <div class="des-price">
+                                <div class="des-title">UNIT PRICE</div>
+                                <input type="number" class="des-content">
+                            </div><hr>
+                            <div class="des-description">
+                                <div class="des-title">DESCRIPTION</div>
+                                <textarea  class="des-content" id="description" name="" id="" cols="30" rows="5"></textarea>
+                            </div>
+                            <div class="des-description add-changes">
+                                <button id="add-changes" onclick="editHandler()">Save</button>
+                            </div>
+                            
+                        </div>                     
+                    </div>                   
                </div>
             </div>
         </div>
     </div>
+    <script src="edit.js"></script>
 </body>
 </html>

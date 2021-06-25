@@ -11,9 +11,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <title>Item Details</title>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
+<link rel="stylesheet" href="style.css">
+    <title>Quantity</title>
 </head>
 <body>
     <div class="container">
@@ -32,9 +32,9 @@
         <div class="main">
             <div class="side-menu">
                 <a href="./index.html">Dashboard</a>
-                <a href="./new.html">add</a>
-                <a href="./remove.html">delete</a>
-                <a href="./quantity.html">Quantity</a>
+                <a href="./add.html">add</a>
+                <a href="./remove.html">quantity</a>
+                <a href="./quantity.html">items</a>
                 <a href="./details.html">information</a>
             </div>
             <div class="content">
@@ -46,29 +46,31 @@
                         </div>
                         <div class="other-info">
                             <div class="des-name">
-                                <div class="des-title">name</div>
-                                <div class="des-content"></div>
+                                <div class="des-title">ITEM NAME</div>
+                                <input type="text" class="des-content">
                             </div><hr>
                             <div class="des-category">
-                                <div class="des-title">category</div>
-                                <div class="des-content"></div>
+                                <div class="des-title">ITEM CATEGORY</div>
+                                <input type="text" class="des-content">
                             </div><hr>
                             <div class="des-quantity">
-                                <div class="des-title">quantity available</div>
-                                <div class="des-content"></div>
+                                <div class="des-title">QUANTITY IN STOCK</div>
+                                <input type="number" class="des-content">
                             </div><hr>
                             <div class="des-price">
-                                <div class="des-title">PRICE</div>
-                                <div class="des-content"></div>
+                                <div class="des-title">UNIT PRICE</div>
+                                <input type="number" class="des-content">
                             </div><hr>
+                            <div class="des-description">
+                                <div class="des-title">DESCRIPTION</div>
+                                <textarea  class="des-content" id="description" name="" id="" cols="30" rows="5"></textarea>
+                            </div>
+                            <div class="des-description add-changes">
+                                <button id="add-changes" onclick="editHandler()">Save</button>
+                            </div>
                             
-                        </div>
-                       
-                    </div><hr>
-                    <div class="des-description">
-                        <div class="des-title">information</div>
-                        <div class="des-content"></div>
-                    </div>
+                        </div>                     
+                    </div>                   
                </div>
             </div>
         </div>
