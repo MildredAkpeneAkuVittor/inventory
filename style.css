@@ -226,7 +226,8 @@ table{
 tr:nth-of-type(even){
     background-color: rgba(0, 129, 130, 0.062);
 }
-thead{
+thead{bn+.
+    .
     font-weight: bolder;
 }
 table,th,td{
@@ -269,38 +270,45 @@ height:0.5rem;
 #item-name,
 #item-qty,
 #item-price,
-#category-select{
+#category-select,
+#description
+{
     margin-right: 20.8rem;
     float: right;
     width: 20rem;
+    margin-left: 17rem;
     padding: 0.5rem 0.5rem 0rem 0.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 2rem;
 }
-label{
-  margin-left: 17rem;
-  padding: 0.5rem 0.5rem 0rem 0.5rem;
-  font-family: Arial, Helvetica, sans-serif;
-}
+
+
 .add-new-item{
     text-align: center;
     margin-top: 2rem;
     color:teal ;
 }
 .add-new-item>button{
-    margin-left: 8rem;
+    margin-left: 35rem;
     padding: 1rem;
     border: solid 1px teal;
     box-shadow:teal 5px 5px ;
     color: tomato;
     width: 10rem;
     cursor: pointer;
+    margin-top: 15rem;
 }
+
 .add-new-item>button:hover{
-    background-color: rgba(0, 0, 0, 0.123);
+    background-color: tomato;
+    color:teal;
 }
-#description{
-    margin-left: 7rem;
+
 
     
+
+.description{
+    margin-left:5rem;
 }
 .category-info{
     text-align: center;
@@ -375,6 +383,17 @@ label{
     font-family: cursive;
 }
 
-  
+
+.other-charts{
+    
+    padding:2rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+   
+    color: teal;
+    font-size: 5rem;
+    margin-top: 0;
+    margin-left: 0;
+}
 
 
